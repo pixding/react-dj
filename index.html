@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var CalendarHeader = React.createClass({
+        handleLeftClick:function(){
+          alert(1);
+        },
+        render:function(){
+          return(
+            <div className="headerborder">
+              <p>20月</p>
+              <p>2015年</p>
+              <p className="triangle-left" onClick={this.handleLeftClick}> 左 </p>
+              <p className="triangle-right"> 右 </p>
+            </div>
+          )
+        }
+      })
+      var CalendarBody = React.createClass({
+        render:function(){
+          return(
+            <div>
+              <div className="weekday">
+                <ul>
+                  <li>SUN</li>
+                  <li>SUN</li>
+                  <li>SUN</li>
+                  <li>SUN</li>
+                  <li>SUN</li>
+                  <li>SUN</li>
+                  <li>SUN</li>
+                </ul>
+              </div>
+              <div className="CalendarDay">
+                <ul>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <li>6</li>
+                  <li>7</li>
+                </ul>
+              </div>
+            </div>
+          )
+        }
+      })
+
+      var CalendarControl = React.createClass({
+        render:function(){
+          return(
+            <div>
+              <CalendarHeader />
+              <CalendarBody />
+            </div>
+          )
+        }
+      })
+
+      ReactDOM.render(
+        <CalendarControl />,
+        document.getElementById('example')
+      )
+
+
+    </script>
+  </body>
+</html>
